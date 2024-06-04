@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Material Design 3 for React with @lit/react
 
-## Getting Started
+Welcome to the repository for integrating Material Design 3 into React using the @lit/react package. This project is built using the Next.js framework and serves as a bridge to use Material Design 3 in React applications.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository demonstrates how to use Material Design 3 web components in a React project. The components are sourced from the `@material/web` package, which is the web implementation of Material Design 3. Since there's no native support for React yet, this project aims to fill that gap.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- The project follows a standard NextJs project, including the use of a `src` folder. This folder hosts all the code, while the `root` folder hosts all configurations.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- The core code that translates Material Design 3 to React can be found in the `src/components/material` directory.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+To get started with the project, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/Gryt-chat/material-gryt-3.git
+    cd material-gryt-3
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Install the dependencies using Yarn:
+    ```sh
+    yarn install
+    ```
 
-## Deploy on Vercel
+3. Run the development server:
+    ```sh
+    yarn dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+
+You can explore the components in the `src/components/material` directory to see how Material Design 3 is being translated to React. Example usage can be found in the `page.tsx` files. Feel free to use and modify these components in your own projects.
+
+## About Gryt
+
+This project is part of the open-source initiative called Gryt. Learn more about Gryt at [https://gryt.chat](https://gryt.chat). This repository is temporary and will be archived once the code is integrated into the library `@gryt/ui`. Future development will continue in the [@gryt/ui](https://github.com/Gryt-chat/gryt-ui) repository.
+
+## Feedback
+
+Your feedback is greatly appreciated! If you encounter any issues or have suggestions for improvements, please open an issue on our [issues page](https://github.com/Gryt-chat/material-gryt-3/issues).
