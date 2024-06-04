@@ -8,7 +8,7 @@ This repository demonstrates how to use Material Design 3 web components in a Re
 
 ### Project Structure
 
-- The project follows a standard NextJs project, including the use of a `src` folder. This folder hosts all the code, while the `root` folder hosts all configurations.
+- The project follows a standard NextJs project, including the use of a `src` directory. This directory hosts all the code, while the `root` directory hosts all configurations.
 
 - The core code that translates Material Design 3 to React can be found in the `src/components/material` directory.
 
