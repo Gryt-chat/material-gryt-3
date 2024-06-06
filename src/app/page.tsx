@@ -5,27 +5,53 @@ import {
   OutlinedTextField,
   TextButton,
 } from "@/components/Material";
-import React from "react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
+  const [showPasswordSection, setShowPasswordSection] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+
+  useEffect(() => {
+    setEmailError(false);
+    console.log(email);
+  }, [email]);
+
+  const validateEmail = () => {
+    const emailIsValid = email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+
+    if (emailIsValid) {
+      setShowPasswordSection(true);
+    } else {
+      setEmailError(true);
+    }
+  };
+
   return (
-      <main className="grid w-screen h-screen place-items-center">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-          className="flex flex-col gap-6 w-[400px] p-6 rounded-2xl bg-surface-container-highest"
-        >
+    <main className="grid w-screen h-screen place-items-center">
+      <div className="flex flex-col gap-8 w-[400px] p-6 rounded-2xl bg-surface-container-highest">
         <h1 className="text-3xl font-bold">Sign in</h1>
         <div className="flex flex-col gap-3 items-start">
-          <OutlinedTextField className="w-full" label="Email" type="email" />
-          <button className="text-secondary text-sm">Forgot password?</button>
+          <OutlinedTextField
+            className="w-full"
+            label="Email"
+            error={emailError}
+            error-text="Enter a valid email"
+            value={email}
+            onchange={(e: any) => setEmail(e.target.value)}
+          />
+          <button className="text-secondary text-sm hover:underline">
+            Forgot password?
+          </button>
         </div>
-          <div className="flex items-center justify-between pt-12">
-            <TextButton>Create account</TextButton>
-            <FilledButton>Next</FilledButton>
-          </div>
-        </form>
-      </main>
+        <div className="flex items-center justify-between pt-4">
+          <TextButton>Create account</TextButton>
+          <FilledButton onClick={validateEmail}>Next</FilledButton>
+        </div>
+      </div>
+    </main>
   );
 }
