@@ -13,6 +13,7 @@ import {
   MdOutlinedIconButton,
   MdFilledTonalIconButton,
   MdTextButton,
+  MdCheckbox,
 } from "@material/web/all.js";
 import React from "react";
 import { createComponent } from "@lit/react";
@@ -119,6 +120,16 @@ export const OutlinedTextField = createComponent({
 export const Switch = createComponent({
   tagName: "md-switch",
   elementClass: MdSwitch,
+  react: React,
+  events: {
+    onClick: "click",
+    onChange: "change",
+  },
+});
+
+export const Checkbox = createComponent({
+  tagName: "md-checkbox",
+  elementClass: MdCheckbox,
   react: React,
   events: {
     onClick: "click",

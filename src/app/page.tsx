@@ -1,14 +1,24 @@
 "use client";
 
+import { ChannelsWindow } from "@/components/ChannelsWindow";
+import { ChatWindow } from "@/components/ChatWindow";
 import {
   FilledButton,
   OutlinedTextField,
   TextButton,
 } from "@/components/Material";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export default function Page() {
+  return (
+    <main className="flex w-full h-full gap-4">
+      <ChannelsWindow />
+      <ChatWindow />
+    </main>
+  );
+}
+
+function SignInDialog() {
   const [showPasswordSection, setShowPasswordSection] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -31,27 +41,25 @@ export default function Page() {
   };
 
   return (
-    <main className="grid w-screen h-screen place-items-center">
-      <div className="flex flex-col gap-8 w-[400px] p-6 rounded-2xl bg-surface-container-highest">
-        <h1 className="text-3xl font-bold">Sign in</h1>
-        <div className="flex flex-col gap-3 items-start">
-          <OutlinedTextField
-            className="w-full"
-            label="Email"
-            error={emailError}
-            error-text="Enter a valid email"
-            value={email}
-            onchange={(e: any) => setEmail(e.target.value)}
-          />
-          <button className="text-secondary text-sm hover:underline">
-            Forgot password?
-          </button>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-          <TextButton>Create account</TextButton>
-          <FilledButton onClick={validateEmail}>Next</FilledButton>
-        </div>
+    <div className="flex flex-col gap-8 w-[400px] rounded-2xl bg-surface-container-highest">
+      <h1 className="text-3xl font-bold">Sign in</h1>
+      <div className="flex flex-col gap-3 items-start">
+        <OutlinedTextField
+          className="w-full"
+          label="Email"
+          error={emailError}
+          error-text="Enter a valid email"
+          value={email}
+          onchange={(e: any) => setEmail(e.target.value)}
+        />
+        <button className="text-secondary text-sm hover:underline">
+          Forgot password?
+        </button>
       </div>
-    </main>
+      <div className="flex items-center justify-between pt-4">
+        <TextButton>Create account</TextButton>
+        <FilledButton onClick={validateEmail}>Next</FilledButton>
+      </div>
+    </div>
   );
 }
